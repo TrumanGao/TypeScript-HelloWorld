@@ -1,4 +1,5 @@
 // 一、原始数据类型：
+
 // string, number, boolean, null, undefined, enum, symbol
 // enum: 枚举类型
 // symbol: 符号类型
@@ -12,7 +13,9 @@ let e:null = null
 a = undefined
 b = null
 
+
 // 二、void：表示变量为空值或者函数无返回值
+
 // 1. 规定变量 f 为空值
 // var f:void = 123 // 报错
 // 2. 规定函数 callBack 没有返回值
@@ -20,12 +23,16 @@ var callBack = function():void{
 	// return 'abc' // 报错
 }
 
+
 // 三、any任意值：表示允许赋值为任意类型
+
 var g:any = 1
 g = '2'
 g = false
 
+
 // 四、类型推论：依照类型推论的规则推断出一个类型
+
 // 1. 如果没有赋值初始值，且没有指定类型，则推断为any，不会被类型检查；
 var h // 推论为any类型
 h = 1
@@ -35,7 +42,9 @@ h = false
 var i = 1 // 推论为number类型
 // g = '2' // 报错
 
+
 // 五、联合类型：赋值可以为多种类型中的一种
+
 var j:string|number|boolean = '1'
 j = 2
 j = false
@@ -43,7 +52,9 @@ j = false
 // console.log(j.length) // 报错
 console.log(j.toString())
 
+
 // 六、对象类型-接口 interface
+
 // 描述类的一部分抽象行为，也可以描述对象的结构形状
 // 接口一般首字母大写；赋值时，变量的形状必须和接口形状一致；接口中可以定义可选属性、只读属性、任意属性
 // 1. 变量形状一致
@@ -102,7 +113,9 @@ var obj6: Istate6 = {
 // obj6.name = '李四' // 只读属性，不能更改
 obj6.age = 24
 
+
 // 七、数组类型 Array，三种写法：
+
 // 1.  “类型 []” 表示法
 var arr1:number [] = [1, 2, 3] 
 var arr2:string [] = ['1', '2', '3']
@@ -134,7 +147,9 @@ interface Iarray3 {
 var arr7:Iarray3 = [{name: '张三', age: 23}, {name: '李四'}]
 // var arr8:Iarray3 = [{name: '张三', age: '23'}] // '23'不是number类型，报错
 
+
 // 八、函数类型
+
 // 1. 声明式类型的函数：约束参数和返回值
 function fn1(name: string, age: number): boolean { // 约束参数name和age，约束返回值为boolean类型
 	return true
@@ -152,6 +167,7 @@ var fn4:(name: string, age?: number) => string = function (name: string = '张�
 	return name
 }
 // 注意：fn4用匿名函数(name: string, age?: number) => string的形式约束参数name和age，返回值为string类型
+// 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
 
 // 3. 接口方式进行约束
 interface Ifunction{
